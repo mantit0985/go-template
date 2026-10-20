@@ -1,0 +1,12 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  ci:
+    uses: mantit0985/.github/.github/workflows/ci.yml@main
+    with:
+      language: 'go'
+      smoke-image: 'go-template:slim'
+      build-verify-cmd: 'docker build --target runtime-slim -t go-template:slim .'
